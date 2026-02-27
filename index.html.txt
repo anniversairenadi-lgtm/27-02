@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyeux Anniversaire Nadi</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background:black;
+    color:white;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Pages */
+.page{
+    display:none;
+    padding:50px 20px;
+    min-height:100vh;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.active{
+    display:block;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* Cœur animé */
+.heart{
+    font-size:80px;
+    color:red;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+/* Boutons */
+button{
+    margin-top:30px;
+    padding:10px 20px;
+    background:white;
+    color:black;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+    border-radius:5px;
+}
+
+button:hover{
+    background:gray;
+}
+
+/* Effet étoiles */
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    animation: move 8s linear infinite;
+}
+
+@keyframes move{
+    from{transform:translateY(0);}
+    to{transform:translateY(100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <div class="heart">❤️</div>
+    <h1>JOYEUX ANNIVERSAIRE NADI</h1>
+    <p>
+        Une journée spéciale pour une personne exceptionnelle.
+    </p>
+    <button onclick="nextPage(2)">Suivant ➜</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1>✨ Mes vœux pour toi ✨</h1>
+    <p>
+        Que cette nouvelle année de ta vie soit remplie
+        de bonheur, de réussite et de paix.
+        <br><br>
+        Que tes rêves prennent forme,
+        que ton sourire ne s’efface jamais,
+        et que chaque jour soit une nouvelle victoire.
+    </p>
+    <button onclick="nextPage(1)">⬅ Retour</button>
+    <button onclick="nextPage(3)">Suivant ➜</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <h1>💌 De la part de nous tous 💌</h1>
+    <p>
+        Toutes nos connaissances communes
+        te souhaitent une année extraordinaire.
+        <br><br>
+        Continue d’être cette personne
+        belle, forte et inspirante
+        que nous avons eu le plaisir de rencontrer en 2025.
+    </p>
+    <button onclick="nextPage(2)">⬅ Retour</button>
+    <button onclick="nextPage(4)">Suivant ➜</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+    <h1>🖤 Message spécial 🖤</h1>
+    <p>
+        Ce site a été créé uniquement pour marquer
+        ton anniversaire d’une manière différente.
+        <br><br>
+        Un petit geste,
+        une petite attention,
+        pour que cette date reste gravée.
+        <br><br>
+        Joyeux anniversaire Nadi.
+        Que cette année soit la plus belle de toutes.
+    </p>
+    <button onclick="nextPage(3)">⬅ Retour</button>
+</div>
+
+<script>
+function nextPage(num){
+    let pages=document.querySelectorAll(".page");
+    pages.forEach(p=>p.classList.remove("active"));
+    document.getElementById("page"+num).classList.add("active");
+}
+
+/* étoiles animées */
+for(let i=0;i<80;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+    star.style.animationDuration=(Math.random()*5+5)+"s";
+    document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>
